@@ -1,0 +1,20 @@
+int* sortedSquares(int* nums,int numsSize,int* returnSize) {
+    int left=0;
+    int right=numsSize-1;
+    int i=numsSize-1;
+    int* result=(int*)malloc(numsSize*sizeof(int));
+    while(left<=right){
+        int leftSqr=nums[left]*nums[left];
+        int rightSqr=nums[right]*nums[right];
+        if(leftSqr>rightSqr){
+            result[i]=leftSqr;
+            left++;
+        }else{
+            result[i]=rightSqr;
+            right--;
+        }
+        i--;
+    }
+    *returnSize=numsSize;
+    return result;
+}
